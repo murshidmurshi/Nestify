@@ -19,10 +19,8 @@ export default function AppNavigator() {
           <Stack.Screen name="OnBoarding" component={OnBoarding} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Register" component={Register} />
-
           {/* User screens */}
           <Stack.Screen name="BottomTab" component={BottomNavigation} />
-          
         </Stack.Navigator>
       </NavigationContainer>
     </>
