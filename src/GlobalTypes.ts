@@ -5,9 +5,12 @@ export type RootParamList={
     Login:undefined, 
     Register:undefined, 
     BottomTab:{role:string},
-    Home:undefined,  // Add Home screen as per your requirement
+    UserHome:undefined,  // Add Home screen as per your requirement
     Explore:undefined,  // Add Home screen as per your requirement
     BookMark:undefined,  // Add Home screen as per your requirement
+    AgentHome:undefined,  // Add Home screen as per your requirement
+    AdminHome:undefined,  // Add Home screen as per your requirement
+
     Profile:undefined,  // Add Home screen as per your requirement
 };
 export type Dimensions={
