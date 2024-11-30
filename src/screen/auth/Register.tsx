@@ -15,7 +15,7 @@ import { showToast } from '../../utils/Toast';
 export default function Register() {
     let theme = useTheme();
     const iconSize = 28;
-    const ActiveOpacity = 0.8;
+    const ActiveOpacity = 0.6;
     const navigation = useNavigation<NativeStackNavigationProp<RootParamList>>();
     const ToLogin = () => navigation.navigate("Login");
     const handleRegister = () => {

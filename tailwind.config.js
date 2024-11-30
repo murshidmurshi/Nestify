@@ -3,8 +3,25 @@ module.exports = {
   content: ["./App.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      borderRadius: {
+        '14': '14px', // Add a custom value for border radius
+      },
+      boxShadow: {
+        'custom': '0 4px 10px rgba(256,240,40,5.2)', // Custom shadow
+      },
       colors: {
       //  customeColor
+      gray: {
+        100: '#f7fafc',
+        200: '#edf2f7',
+        300: '#e2e8f0',
+        400: '#cbd5e0',
+        500: '#a0aec0', // Default gray
+        600: '#718096',
+        700: '#4a5568',
+        800: '#2d3748',
+        900: '#1a202c',
+      },
       },
     },
   },
