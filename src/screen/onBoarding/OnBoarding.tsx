@@ -148,7 +148,7 @@ export default function OnBoarding() {
       <Onboarding
         NextButtonComponent={() => {
           return (
-            <TouchableOpacity activeOpacity={0.7} onPress={handleNavigate} className='right-5 '>
+            <TouchableOpacity activeOpacity={0.6} onPress={handleNavigate} className='right-5 '>
               <CustomText style={{ fontFamily: fonts.Medium, fontSize: 15, color: theme.colors.secondary }}>
                 Skip
               </CustomText>

@@ -21,7 +21,7 @@ interface LoginForm {
 export default function Login() {
     let theme = useTheme();
     const iconSize = 28;
-    const ActiveOpacity = 0.8;
+    const ActiveOpacity = 0.6;
     let navigation = useNavigation<NativeStackNavigationProp<RootParamList>>();
     const ToRegister = () => navigation.navigate("Register");
 

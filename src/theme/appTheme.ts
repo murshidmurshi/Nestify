@@ -17,8 +17,11 @@ export const lightTheme = {
     inversePrimary: "#D1E0FE",
     scrim: "rgb(96, 95, 95)",
     shadow: "rgba(128, 128, 128, 0.303)",  // Use `as any` as a last resort
+    onPrimary:"#fbf9f9",
+    onPrimaryContainer:"#eef2fc",
+
   },
-  roundness: 10,
+  roundness: 14,
 };
 
 // Define custom dark theme
@@ -33,6 +36,10 @@ export const darkTheme = {
     inversePrimary: "#D1E0FE",
     scrim: "rgb(96, 95, 95)",
     shadow: "rgba(128, 128, 128, 0.303)", // Your custom transparent grey
+    onPrimary:"#1c1b1b",
+    onPrimaryContainer:"#252628",
+
+
   },
-  roundness: 10,
+  roundness: 14,
 };
