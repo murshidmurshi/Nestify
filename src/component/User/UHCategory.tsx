@@ -31,7 +31,8 @@ interface HouseItem {
   price: number;
   location: string;
   houseName: string;
-}
+};
+
 interface RenderHouseProps {
   ActiveOpacity: number,
   theme: any,
@@ -66,17 +67,17 @@ const RenderIcons = ({ type, theme, selected }: IconProps) => {
   return (
     <>
       {type == "Villa" ? (
-        <Iconify icon="emojione-monotone:house-with-garden" size={27} color={iconstyle} />
+        <Iconify icon="emojione-monotone:house-with-garden" size={21} color={iconstyle} />
       ) : type == "Hotel" ? (
-        <Iconify icon="emojione-monotone:hotel" size={23} color={iconstyle} />
+        <Iconify icon="emojione-monotone:hotel" size={19} color={iconstyle} />
       ) : type == "Apart" ? (
-        <Iconify icon="ph:building-apartment-light" size={30} color={iconstyle} />
+        <Iconify icon="ph:building-apartment-light" size={23} color={iconstyle} />
       ) : type == "House" ? (
-        <Iconify icon="emojione-monotone:house" size={27} color={iconstyle} />
+        <Iconify icon="emojione-monotone:house" size={21} color={iconstyle} />
       ) : type == "Office" ? (
-        <Iconify icon="ph:building-office-light" size={27} color={iconstyle} />
+        <Iconify icon="ph:building-office-light" size={21} color={iconstyle} />
       ) : type == "Indust" ? (
-        <Iconify icon="iconoir:industry" size={27} color={iconstyle} />
+        <Iconify icon="iconoir:industry" size={21} color={iconstyle} />
       ) : (
         <>
         </>
@@ -114,13 +115,12 @@ const RenderHouses = ({ ActiveOpacity, theme, item }: RenderHouseProps) => {
 
       {/* Other Content */}
       <View className='flex-row justify-between items-end p-3.5 my-1 '>
-
         <View>
-          <CustomText className='text-[19px]' style={{ fontFamily: fonts.SemiBold }}>
+          <CustomText className='text-[16px]' style={{ fontFamily: fonts.SemiBold }}>
             Lorem House
           </CustomText>
           <CustomText className='text-md' style={{ fontFamily: fonts.Regular, color: theme.colors.secondary }}>
-            $350,000/month
+            $350/month
           </CustomText>
 
           {/* Location Detail */}
@@ -155,8 +155,6 @@ export default function UHCategory() {
 
   const [selected, setSelected] = useState<string | null>(null);
   const handleCategoryPress = (item: CategoryItem) => {
-    console.log(item, 'item');
-
     setSelected(item?.name)
   }
   return (
@@ -171,6 +169,8 @@ export default function UHCategory() {
           data={Category}
           renderItem={({ item, }: { item: CategoryItem }) => <RenderCategory item={item} ActiveOpacity={ActiveOpacity} theme={theme} handleCategoryPress={handleCategoryPress} selected={selected} />}
           keyExtractor={(item: CategoryItem) => item.name}
+          className='px-2'
+          nestedScrollEnabled={true}
         />
       </View>
 

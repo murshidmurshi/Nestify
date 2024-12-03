@@ -19,7 +19,9 @@ export const lightTheme = {
     shadow: "rgba(128, 128, 128, 0.303)",  // Use `as any` as a last resort
     onPrimary:"#fbf9f9",
     onPrimaryContainer:"#eef2fc",
-
+    rate:"#F1B169",
+    lightBlue:"#132E4C",
+    primaryLight:"#5A93E4"
   },
   roundness: 14,
 };
@@ -38,7 +40,9 @@ export const darkTheme = {
     shadow: "rgba(128, 128, 128, 0.303)", // Your custom transparent grey
     onPrimary:"#1c1b1b",
     onPrimaryContainer:"#252628",
-
+    rate:"#F1B169",
+    lightBlue:"#B2CCED",
+    primaryLight:"#5A93E4"
 
   },
   roundness: 14,
