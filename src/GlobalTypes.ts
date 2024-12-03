@@ -7,7 +7,7 @@ export type RootParamList={
     BottomTab:{role:string},
     UserHome:undefined,
     Explore:undefined,
-    BookMark:undefined,
+    Favorite:undefined,
     AgentHome:undefined,
     AdminHome:undefined,
 

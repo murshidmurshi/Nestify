@@ -1,6 +1,6 @@
 import { StyleProp, TextStyle} from 'react-native'
 import React from 'react'
-import { Text } from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
 
 interface CustomTextProps{
   style?:StyleProp<TextStyle>,
@@ -9,7 +9,8 @@ interface CustomTextProps{
 }
 
 const CustomText:React.FC<CustomTextProps>=({style,className,children,...props})=>{
-  return <Text style={[style]} {...props}>{children}</Text>
+  let theme=useTheme();
+  return <Text style={[{color:theme.colors.lightBlue},style,]} {...props}>{children}</Text>
 }
 
 export default CustomText;
