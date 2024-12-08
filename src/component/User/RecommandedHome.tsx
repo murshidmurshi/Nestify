@@ -37,21 +37,7 @@ const houses: HouseItem[] = [
     location: 'San Francisco, USA',
     houseName: 'Penthouse Suite',
   },
-  {
-    id: 4,
-
-    image: 'https://example.com/house1.jpg',
-    price: 350000,
-    location: 'New York, USA ',
-    houseName: 'Luxury Villa 2',
-  },
-  {
-    id: 5,
-    image: 'https://example.com/house2.jpg',
-    price: 250000,
-    location: 'Los Angeles, USA',
-    houseName: 'Modern Apartment 2',
-  },
+ 
   
 ];
 

@@ -4,7 +4,7 @@ import { useTheme } from 'react-native-paper';
 import CustomText from '../../component/customeText/CustomText';
 
 
-export default function Explore() {
+export default function SingleHome() {
   let theme = useTheme();
 
   return (

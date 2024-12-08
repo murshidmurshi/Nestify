@@ -39,7 +39,7 @@ const HouseList: React.FC<RenderHouseProps> = React.memo(({ item, viewableItem,s
     
     return (
         <>
-            <Animated.View className='flex-row rounded-14 p-2 space-x-1' style={[{ backgroundColor: theme.colors.onPrimary, }, rStyle,style]}>
+            <Animated.View   className='flex-row rounded-14 p-2 space-x-1' style={[{ backgroundColor: theme.colors.onPrimary, }, rStyle,style]}>
                 {/* Image */}
                 <View>
                     <Image style={{ width: windowDimension.width / 3.6, height: windowDimension.width / 3.9, }}  // Set explicit width and height

@@ -26,10 +26,10 @@ const navigation = useNavigation<NativeStackNavigationProp<RootParamList>>();
           <View className='flex-row justify-between px-4 py-4 items-center'>
             {/* header Text */}
             <View className='flex-row items-center space-x-0.5'>
-              <CustomText className='text-2xl' style={{ fontFamily: fonts.Medium, color: theme.colors.primary }}>
+              <CustomText className='text-2xl' style={{ fontFamily: fonts.SemiBold, color: theme.colors.primary }}>
                 Nest
               </CustomText>
-              <CustomText className='text-2xl' style={{ fontFamily: fonts.Medium, }}>
+              <CustomText className='text-2xl' style={{ fontFamily: fonts.SemiBold, }}>
                 ify
               </CustomText>
             </View>
@@ -51,15 +51,17 @@ const navigation = useNavigation<NativeStackNavigationProp<RootParamList>>();
           <View className='flex-row items-center px-4' >
             {/* input  */}
             <View className="flex-1 mr-4">
-              <TextInput className='text-sm' mode="outlined"
-                contentStyle={{ fontFamily: fonts.Regular, top: 3 }}
-                placeholder='Search by Address,City,or ZIP'
-                left={<TextInput.Icon icon={() => <Iconify icon="lets-icons:search-alt-light" size={35} color={theme.colors.onBackground} />} />}
+              <TextInput className='text-sm h-[51px]' mode="outlined"
+              style={{backgroundColor:theme.colors.onPrimary}}
+                contentStyle={{ fontFamily: fonts.Regular, top: 3 ,color:'red'}}
+                outlineStyle={{borderColor:'transparent'}}
+                placeholder='Search apart, hotel,etc ... '
+                left={<TextInput.Icon icon={() => <Iconify icon="lets-icons:search-alt-light" size={30} color={theme.colors.primary} />} />}
               />
             </View>
             {/* Filter btn */}
-            <View className='rounded-14 p-2' style={{ backgroundColor: theme.colors.primary }}>
-              <Iconify icon='lets-icons:filter-big' size={40} color={"#fff"} />
+            <View className='rounded-14 p-2' style={{ backgroundColor: theme.colors.onPrimary }}>
+              <Iconify icon='lets-icons:filter-big' size={34} color={theme.colors.primary} />
             </View>
           </View>
 
