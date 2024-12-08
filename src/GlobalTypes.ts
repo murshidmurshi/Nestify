@@ -15,6 +15,7 @@ export type RootParamList={
     // Re-Usable
     Profile:undefined,
     Notification:undefined,
+    SingleHome:undefined,
 };
 export type Dimensions={
     width:number,
@@ -25,6 +26,7 @@ export type Dimensions={
 export type ViewableItem=Animated.SharedValue<ViewToken[]>;
 
 export type NotificationItem={
+    id:number,
     title:string,
     subtitle:string,
 }
