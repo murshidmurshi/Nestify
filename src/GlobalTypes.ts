@@ -1,4 +1,5 @@
-import { Dimensions as deviceDimension } from "react-native"
+import { Dimensions as deviceDimension, ViewToken } from "react-native"
+import Animated from "react-native-reanimated";
 
 export type RootParamList={
     OnBoarding:undefined, 
@@ -11,16 +12,23 @@ export type RootParamList={
     AgentHome:undefined,
     AdminHome:undefined,
 
+    // Re-Usable
     Profile:undefined,
+    Notification:undefined,
 };
 export type Dimensions={
     width:number,
     height:number,
 };
 
+
+export type ViewableItem=Animated.SharedValue<ViewToken[]>;
+
+export type NotificationItem={
+    title:string,
+    subtitle:string,
+}
 export const windowDimension:Dimensions={
     width:deviceDimension.get("window").width,
     height:deviceDimension.get("window").height,
 };
-
-

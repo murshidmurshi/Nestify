@@ -32,7 +32,7 @@ export default function AppHeader({ screenName, backIcon, RenderIcon }: AppHeade
             fontSize: 18,
             fontFamily: 'Poppins-Medium',
             color: theme.colors.lightBlue,
-            left: !backIcon ? 30 : 0
+            left: !backIcon ? 11 : 0
           }} />
 
         {RenderIcon && RenderIcon()}

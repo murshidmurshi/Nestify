@@ -1,36 +1,50 @@
-import { Image, ScrollView, StyleSheet, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { TextInput, useTheme } from 'react-native-paper'
+import { Badge, TextInput, useTheme } from 'react-native-paper'
 import CustomText from '../../component/customeText/CustomText';
 import { fonts } from '../../component/customeText/fonts';
 import { Iconify } from 'react-native-iconify';
 import UHCategory from '../../component/User/UHCategory';
 import RecommandedHome from '../../component/User/RecommandedHome';
+import { useNavigation } from '@react-navigation/native';
+import { RootParamList } from '../../GlobalTypes';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 export default function UserHome() {
   let theme = useTheme();
+  const ActiveOpacity = 0.6;
+const navigation = useNavigation<NativeStackNavigationProp<RootParamList>>();
+
   return (
     <>
       <View className='flex-1' style={[{ backgroundColor: theme.colors.background }]}>
         <ScrollView showsHorizontalScrollIndicator={false}
           scrollEventThrottle={16} // Ensure smooth updates
-          showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+          showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled"
+        >
           {/* Header container */}
-          <View className='flex-row justify-between p-4 items-center'>
+          <View className='flex-row justify-between px-4 py-4 items-center'>
             {/* header Text */}
-            <View>
-              <CustomText className='text-[19px]' style={{ fontFamily: fonts.Regular, }}>
-                Let's Find your
+            <View className='flex-row items-center space-x-0.5'>
+              <CustomText className='text-2xl' style={{ fontFamily: fonts.Medium, color: theme.colors.primary }}>
+                Nest
               </CustomText>
-              <CustomText className='text-[22px]' style={{ fontFamily: fonts.SemiBold }}>
-                Fovorite Home
+              <CustomText className='text-2xl' style={{ fontFamily: fonts.Medium, }}>
+                ify
               </CustomText>
             </View>
-
-            {/* header profile image */}
-            <View>
-              <Image className='w-14 h-14 rounded-full' source={{ uri: "https://img.freepik.com/free-vector/young-man-black-shirt_1308-173618.jpg?ga=GA1.1.1647539801.1732414251&semt=ais_hybrid" }} />
-            </View>
+            {/* bell */}
+            <TouchableOpacity activeOpacity={ActiveOpacity} onPress={()=>navigation.navigate("Notification")}>
+              <Iconify style={{ zIndex: 1 }} icon='solar:bell-outline' size={25} color={theme.colors.primary} />
+              <Badge className="h-5 items-center absolute p-0  bottom-4 left-2 " style={{
+                zIndex: 100,
+                backgroundColor: theme.colors.secondary,
+                fontFamily: "Poppins-Regular",
+                color: "#fff",
+              }}>
+                4
+              </Badge>
+            </TouchableOpacity>
           </View>
 
           {/* Search Bar container */}
@@ -47,9 +61,7 @@ export default function UserHome() {
             <View className='rounded-14 p-2' style={{ backgroundColor: theme.colors.primary }}>
               <Iconify icon='lets-icons:filter-big' size={40} color={"#fff"} />
             </View>
-
           </View>
-
 
 
           {/* List of Category */}
