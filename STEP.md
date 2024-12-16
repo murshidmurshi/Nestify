@@ -185,4 +185,8 @@ For Iconify ://one of the best icon collection package
 then in babel.config.js and below code inside plugin array
      'react-native-iconify/plugin',  // Add this line
 
+For Top Tabs
+# npm install @react-navigation/material-top-tabs
+also required 
+# npm install react-native-pager-view
 

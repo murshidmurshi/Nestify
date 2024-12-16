@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Appbar, useTheme } from 'react-native-paper';
 import AppHeader from '../../component/Header/AppHeader';
 import { Iconify } from 'react-native-iconify';
-import { useSharedValue  } from 'react-native-reanimated';
+import { useSharedValue } from 'react-native-reanimated';
 import HouseList from '../component/HouseList';
 import CategoryList from '../component/CategoryList';
 interface CategoryItem {
@@ -37,108 +37,101 @@ export default function Favorite() {
       image: 'https://example.com/house1.jpg',
       price: 350000,
       location: 'New York, USA',
-      houseName: 'Luxury Villa',
+      houseName: 'Elegant Manor',
     },
     {
       id: 2,
-
       image: 'https://example.com/house2.jpg',
       price: 250000,
       location: 'Los Angeles, USA',
-      houseName: 'Modern Apartment',
+      houseName: 'Sunset Apartment',
     },
     {
       id: 3,
       image: 'https://example.com/house3.jpg',
       price: 450000,
       location: 'San Francisco, USA',
-      houseName: 'Penthouse Suite',
+      houseName: 'Bayview Penthouse',
     },
     {
       id: 4,
-
       image: 'https://example.com/house1.jpg',
-      price: 350000,
-      location: 'New York, USA ',
-      houseName: 'Luxury Villa 2',
+      price: 400000,
+      location: 'Chicago, USA',
+      houseName: 'Windy City Residence',
     },
     {
       id: 5,
       image: 'https://example.com/house2.jpg',
-      price: 250000,
-      location: 'Los Angeles, USA',
-      houseName: 'Modern Apartment 2',
+      price: 300000,
+      location: 'Seattle, USA',
+      houseName: 'Rainforest Retreat',
     },
     {
       id: 6,
-
       image: 'https://example.com/house3.jpg',
-      price: 450000,
-      location: 'San Francisco, USA ',
-      houseName: 'Penthouse Suite 2 ',
+      price: 500000,
+      location: 'Miami, USA',
+      houseName: 'Ocean Breeze Villa',
     },
     {
       id: 7,
-
       image: 'https://example.com/house1.jpg',
-      price: 350000,
-      location: 'New York, USA',
-      houseName: 'Luxury Villa 3',
+      price: 320000,
+      location: 'Houston, USA',
+      houseName: 'Urban Oasis',
     },
     {
       id: 8,
-
       image: 'https://example.com/house2.jpg',
-      price: 250000,
-      location: 'Los Angeles, USA',
-      houseName: 'Modern Apartment 3',
+      price: 280000,
+      location: 'Phoenix, USA',
+      houseName: 'Desert Bloom Apartment',
     },
     {
       id: 9,
       image: 'https://example.com/house3.jpg',
-      price: 450000,
-      location: 'San Francisco, USA',
-      houseName: 'Penthouse Suite 3',
+      price: 480000,
+      location: 'San Diego, USA',
+      houseName: 'Seaside Paradise',
     },
     {
       id: 10,
       image: 'https://example.com/house2.jpg',
-      price: 250000,
-      location: 'Los Angeles, USA',
-      houseName: 'Modern Apartment 2',
+      price: 290000,
+      location: 'Boston, USA',
+      houseName: 'Historic Townhome',
     },
     {
       id: 11,
-
       image: 'https://example.com/house3.jpg',
-      price: 450000,
-      location: 'San Francisco, USA ',
-      houseName: 'Penthouse Suite 2 ',
+      price: 460000,
+      location: 'Denver, USA',
+      houseName: 'Mountain View Lodge',
     },
     {
       id: 12,
-
       image: 'https://example.com/house1.jpg',
       price: 350000,
-      location: 'New York, USA',
-      houseName: 'Luxury Villa 3',
+      location: 'Orlando, USA',
+      houseName: 'Theme Park Villa',
     },
     {
       id: 13,
-
       image: 'https://example.com/house2.jpg',
-      price: 250000,
-      location: 'Los Angeles, USA',
-      houseName: 'Modern Apartment 3',
+      price: 310000,
+      location: 'Atlanta, USA',
+      houseName: 'Peach Blossom Cottage',
     },
     {
       id: 14,
       image: 'https://example.com/house3.jpg',
-      price: 450000,
-      location: 'San Francisco, USA',
-      houseName: 'Penthouse Suite 3',
+      price: 470000,
+      location: 'Las Vegas, USA',
+      houseName: 'High Roller Suite',
     },
   ];
+
 
   const RenderIcon = () => (
     <>
@@ -162,7 +155,7 @@ export default function Favorite() {
 
   const viewableItem = useSharedValue<ViewToken[]>([]);
   const viewCategoryitem = useSharedValue<ViewToken[]>([]);
-  const favStyle={margiVertical: 10}
+  const favStyle = { margiVertical: 10 }
 
   return (
     <>
@@ -195,7 +188,7 @@ export default function Favorite() {
             onViewableItemsChanged={({ viewableItems: vItems }) => {
               viewableItem.value = vItems;
             }}
-            renderItem={({ item }) => <HouseList item={item} viewableItem={viewableItem} style={{marginVertical:6}} />}
+            renderItem={({ item }) => <HouseList item={item} viewableItem={viewableItem} style={{ marginVertical: 6 }} />}
           // keyExtractor={(item) => item?.houseName}
           />
         </View>

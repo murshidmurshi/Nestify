@@ -8,7 +8,6 @@ import { loadTheme, setTheme } from '../redux/slices/theme';
 import { darkTheme, lightTheme } from '../theme/appTheme';
 import { Appearance } from 'react-native';
 
-
 export default function AppWithTheme() {
 
   const themes=useSelector((theme:RootState)=>theme.theme);

@@ -5,10 +5,9 @@ module.exports = {
     extend: {
       borderRadius: {
         '14': '14px', // Add a custom value for border radius
+        '9': '9px', // Add a custom value for border radius
       },
-      boxShadow: {
-        'custom': '0 4px 10px rgba(256,240,40,5.2)', // Custom shadow
-      },
+     
       colors: {
       //  customeColor
       gray: {

@@ -1,5 +1,5 @@
-import { StyleSheet ,TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import Onboarding from 'react-native-onboarding-swiper';
 import { RootParamList, windowDimension } from '../../GlobalTypes';
 import CustomText from '../../component/customeText/CustomText';
@@ -10,8 +10,9 @@ import MapProperty from '../../../assets/Image/MapProperty.svg'
 import Arrange from '../../../assets/Image/Arrange.svg'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
-const fisrtScreen = (theme: any) => ({
+const fisrtScreen = (theme: any, animatedTextStyles, handleTextAnimation) => ({
   backgroundColor: theme.colors.background,
   title: (
     <>
@@ -31,9 +32,11 @@ const fisrtScreen = (theme: any) => ({
   subtitle: (
     <>
       <View className='mt-5  mx-4'>
-        <CustomText className="text-1xl text-center" style={{ fontFamily: fonts.Regular }}>
-          Discover a wide range of homes, from cozy apartments to spacious villas, all tailored to meet your preferences.
-        </CustomText>
+        <Animated.Text onLayout={handleTextAnimation} style={animatedTextStyles}>
+          <CustomText className="text-1xl text-center" style={{ fontFamily: fonts.Regular }}>
+            Discover a wide range of homes, from cozy apartments to spacious villas, all tailored to meet your preferences.
+          </CustomText>
+        </Animated.Text>
       </View>
     </>
   ),
@@ -143,6 +146,19 @@ export default function OnBoarding() {
   };
 
 
+  const textOpacity = useSharedValue(0);
+  const textTranslateY = useSharedValue(-50);
+
+  const animatedTextStyles = useAnimatedStyle(() => ({
+    opacity: textOpacity.value,
+    transform: [{ translateY: textTranslateY.value }],
+  }));
+
+  const handleTextAnimation = () => {
+    textOpacity.value = withTiming(1, { duration: 500 }); // Adjust duration as needed
+    textTranslateY.value = withTiming(0, { duration: 500 });
+  };
+
   return (
     <>
       <Onboarding
@@ -160,9 +176,11 @@ export default function OnBoarding() {
         bottomBarHighlight={false}
         pageIndexCallback={pageIndexCallback} // Pass the callback function here
         containerStyles={{ flex: 1, justifyContent: 'flex-start' }}
-        pages={[fisrtScreen(theme), secondScreen(theme), thirdScreen(theme)]}
+        pages={[fisrtScreen(theme, animatedTextStyles, handleTextAnimation), secondScreen(theme), thirdScreen(theme)]}
         DotComponent={CustomPagination} // Pass the component, NOT JSX
       />
+
+
     </>
   )
 }
