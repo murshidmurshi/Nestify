@@ -1,13 +1,20 @@
-import { Image, ScrollView, StyleSheet, Switch, Text, View } from 'react-native'
+import { Button, Image, ScrollView, StyleSheet, Switch, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { useTheme } from 'react-native-paper';
 import AppHeader from '../../component/Header/AppHeader';
 import CustomText from '../../component/customeText/CustomText';
 import { fonts } from '../../component/customeText/fonts';
 import { Iconify } from 'react-native-iconify';
+import Animated from 'react-native-reanimated';
+import { sharedElementTransition } from '../../utils/SharedElementTransition';
+import { useNavigation } from '@react-navigation/native';
+import { RootParamList } from '../../GlobalTypes';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 export default function Profile() {
   let theme = useTheme();
+  let navigation = useNavigation<NativeStackNavigationProp<RootParamList>>();
+
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -51,7 +58,9 @@ export default function Profile() {
               <View className=' p-2 flex-row  item-center justify-between  '>
                 {/* icon,label */}
                 <View className='flex-row space-x-2 items-center '>
-                  <Iconify icon='solar:bell-outline' size={30} color={theme.colors.primary} />
+                  <View className='p-1 rounded-14' style={{ backgroundColor: theme.colors.onPrimaryContainer }}>
+                    <Iconify icon='solar:bell-outline' size={30} color={theme.colors.primary} />
+                  </View>
                   <CustomText className='text-sm' style={{ fontFamily: fonts.Regular, }}>
                     Notification
                   </CustomText>
@@ -69,7 +78,9 @@ export default function Profile() {
               <View className=' p-2 flex-row  item-center justify-between  '>
                 {/* icon,label */}
                 <View className='flex-row space-x-2 items-center '>
-                  <Iconify icon='heroicons:language' size={31} color={theme.colors.primary} />
+                  <View className='p-1 rounded-14' style={{ backgroundColor: theme.colors.onPrimaryContainer }}>
+                    <Iconify icon='heroicons:language' size={31} color={theme.colors.primary} />
+                  </View>
                   <CustomText className='text-sm' style={{ fontFamily: fonts.Regular, }}>
                     Language
                   </CustomText>
@@ -84,7 +95,9 @@ export default function Profile() {
               <View className=' p-2 flex-row  item-center justify-between  '>
                 {/* icon,label */}
                 <View className='flex-row space-x-2 items-center '>
-                  <Iconify icon='streamline:dark-dislay-mode' size={31} color={theme.colors.primary} />
+                  <View className='p-1 rounded-14' style={{ backgroundColor: theme.colors.onPrimaryContainer }}>
+                    <Iconify icon='iconamoon:mode-dark-light' size={31} color={theme.colors.primary} />
+                  </View>
                   <CustomText className='text-sm' style={{ fontFamily: fonts.Regular, }}>
                     Mode
                   </CustomText>
@@ -99,7 +112,9 @@ export default function Profile() {
               <View className=' p-2 flex-row  item-center justify-between  '>
                 {/* icon,label */}
                 <View className='flex-row space-x-2 items-center '>
-                  <Iconify icon='icon-park-outline:people-bottom' size={31} color={theme.colors.primary} />
+                  <View className='p-1 rounded-14' style={{ backgroundColor: theme.colors.onPrimaryContainer }}>
+                    <Iconify icon='material-symbols-light:conditions-rounded' size={32} color={theme.colors.primary} />
+                  </View>
                   <CustomText className='text-sm' style={{ fontFamily: fonts.Regular, }}>
                     Terms and Conditions of Use
                   </CustomText>
@@ -122,7 +137,9 @@ export default function Profile() {
               <View className=' p-2 flex-row  item-center justify-between  '>
                 {/* icon,label */}
                 <View className='flex-row space-x-2 items-center '>
-                  <Iconify icon='ion:help' size={31} color={theme.colors.primary} />
+                  <View className='p-1 rounded-14' style={{ backgroundColor: theme.colors.onPrimaryContainer }}>
+                    <Iconify icon='ion:help' size={31} color={theme.colors.primary} />
+                  </View>
                   <CustomText className='text-sm' style={{ fontFamily: fonts.Regular, }}>
                     Help & Support
                   </CustomText>
@@ -133,8 +150,10 @@ export default function Profile() {
               </View>
               <View className=' p-2 flex-row  item-center justify-between  '>
                 {/* icon,label */}
-                <View className='flex-row space-x-2 items-center '>
-                  <Iconify icon='mdi:about-variant' size={31} color={theme.colors.primary} />
+                <View className='flex-row space-x-2 items-center'>
+                  <View className='p-1 rounded-14' style={{ backgroundColor: theme.colors.onPrimaryContainer }}>
+                    <Iconify icon='mdi:about-variant' size={31} color={theme.colors.primary} />
+                  </View>
                   <CustomText className='text-sm' style={{ fontFamily: fonts.Regular, }}>
                     About App
                   </CustomText>
@@ -145,6 +164,7 @@ export default function Profile() {
               </View>
             </View>
           </View>
+
         </ScrollView>
 
 

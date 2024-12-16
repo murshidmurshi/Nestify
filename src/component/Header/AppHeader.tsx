@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native'
 import React from 'react'
 import { Appbar, useTheme } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native';
@@ -10,21 +10,28 @@ interface AppHeaderProps {
   screenName: string;
   backIcon?: boolean;
   RenderIcon?: () => JSX.Element | null;
+  absolute?: boolean;
 };
 
-export default function AppHeader({ screenName, backIcon, RenderIcon }: AppHeaderProps) {
+export default function AppHeader({ screenName, backIcon, RenderIcon, absolute }: AppHeaderProps) {
+  console.log(absolute, 'absolute');
+
+
+
   let theme = useTheme();
   let navigation = useNavigation<NativeStackNavigationProp<RootParamList>>();
   const handleBackPress = () => {
     navigation.goBack();
   }
+  let absoluteStyle: StyleProp<ViewStyle> = absolute == true ? { position: "absolute", top: 0, zIndex: 10, left: 0, right: 0, backgroundColor: 'transparent', } : { backgroundColor: theme.colors.background, }
+
   return (
     <>
-      <Appbar.Header style={{ backgroundColor: theme.colors.background }}>
+      <Appbar.Header style={[absoluteStyle]}>
         {backIcon == false ? (
           <></>
         ) : (
-          <Appbar.BackAction onPress={handleBackPress} />
+          <Appbar.BackAction color={absolute ? theme.colors.secondary : ""} style={{ backgroundColor: absolute ? theme.colors.background : '', }} onPress={handleBackPress} />
         )}
 
         <Appbar.Content title={screenName}

@@ -1,6 +1,15 @@
 import { Dimensions as deviceDimension, ViewToken } from "react-native"
 import Animated from "react-native-reanimated";
 
+
+interface HouseItem {
+    id: number;
+    image: string; // URL or path to the image
+    price: number;
+    location: string;
+    houseName: string;
+};
+
 export type RootParamList={
     OnBoarding:undefined, 
     Login:undefined, 
@@ -15,7 +24,7 @@ export type RootParamList={
     // Re-Usable
     Profile:undefined,
     Notification:undefined,
-    SingleHome:undefined,
+    SingleHome:{item:HouseItem},
 };
 export type Dimensions={
     width:number,

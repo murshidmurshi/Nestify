@@ -10,7 +10,7 @@ import Login from '../screen/auth/Login';
 import Register from '../screen/auth/Register';
 import BottomNavigation from '../screen/BottomNavigation';
 import Notification from '../screen/Reuse/Notification';
-import SingleHome from '../screen/Reuse/SingleHome';
+import SingleHome from '../screen/Home/SingleHome';
 
 const Stack = createNativeStackNavigator<RootParamList>();
 export default function AppNavigator() {
@@ -26,7 +26,7 @@ export default function AppNavigator() {
 
           {/* Re-Usable Screens -- */}
           <Stack.Screen name="Notification" component={Notification} />
-          <Stack.Screen name="SingleHome" component={SingleHome} />
+          <Stack.Screen name="SingleHome" component={SingleHome} options={{animation:"fade_from_bottom"}} />
 
         </Stack.Navigator>
       </NavigationContainer>
