@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ThemeSlice from "../slices/theme";
+import NormalSlic from "../slices/normal";
 
 const store = configureStore({
     reducer: {
         //Define slice here
         theme:ThemeSlice,
+        normal:NormalSlic,
     }
 });
 

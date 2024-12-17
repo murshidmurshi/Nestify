@@ -5,6 +5,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Description from './Description';
 import Gallery from './Gallery';
 import { useTheme } from 'react-native-paper';
+import Review from './Review';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -26,7 +27,7 @@ export default function TopTabs() {
     >
         <Tab.Screen name="Description" component={Description} />
         <Tab.Screen name="Gallery" component={Gallery} />
-        <Tab.Screen name="Review" component={Gallery} />
+        <Tab.Screen name="Review" component={Review} />
       </Tab.Navigator>
     </>
   )
