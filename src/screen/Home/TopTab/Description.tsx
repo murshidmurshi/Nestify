@@ -1,10 +1,16 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, NativeScrollEvent, NativeSyntheticEvent, ScrollView, ScrollViewProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { Divider, useTheme } from 'react-native-paper'
 import { Iconify } from 'react-native-iconify'
 import CustomText from '../../../component/customeText/CustomText'
 import { fonts } from '../../../component/customeText/fonts'
 import { windowDimension } from '../../../GlobalTypes'
+import { OnPageScrollEventData } from 'react-native-pager-view/lib/typescript/PagerViewNativeComponent'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../../redux/store/store'
+import { setOnScroll } from '../../../redux/slices/normal'
+
+
 
 type DetailCardProps = {
   title?: string,
@@ -227,10 +233,19 @@ const DetailCard = () => {
     },
   ];
 
+
+  const dispatch = useDispatch<AppDispatch>(); // Correctly type dispatch as AppDispatch
+
   let theme = useTheme();
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const offsetY = event.nativeEvent.contentOffset.y;
+    dispatch(setOnScroll(offsetY));
+  };
+
   return (
     <>
       <ScrollView
+        onScroll={handleScroll}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >

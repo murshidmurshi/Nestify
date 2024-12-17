@@ -3,6 +3,7 @@ import React from 'react'
 import { useTheme } from 'react-native-paper'
 import { fonts } from '../../../component/customeText/fonts';
 import CustomText from '../../../component/customeText/CustomText';
+import { windowDimension } from '../../../GlobalTypes';
 
 type GalleryProps = {
   id: string,
@@ -11,11 +12,12 @@ type GalleryProps = {
 
 const RenderGalleryImage = ({ item }: any) => {
   return (
-    <View className="flex-1 flex-row mb-3 items-center justify-evenly ">
+    <View className=" m-2 items-center justify-center ">
       {/* Parent container ensures two items per row */}
       <View >
         <Image
-          className="w-44 h-44 rounded-2xl"
+          style={{ width: windowDimension.width / 2.3, height: windowDimension.width / 2.3 }}
+          className="  rounded-2xl"
           source={{ uri: item?.image }}
         />
       </View>
@@ -42,8 +44,11 @@ export default function Gallery() {
     <>
       <View className='flex-1 flex-row ' style={[{ backgroundColor: theme.colors.background }]}>
         <FlatList
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
           data={allimage}
           renderItem={({ item }) => <RenderGalleryImage item={item} />}
+          contentContainerStyle={{ alignItems: 'center', gap: 2 }}
           keyExtractor={item => item?.id}
           numColumns={2} // Ensures two images per row
           ListHeaderComponent={() => (
@@ -59,6 +64,7 @@ export default function Gallery() {
               </View>
             </>
           )}
+          ListHeaderComponentStyle={{ alignSelf: "flex-start" }}
         />
       </View>
     </>
